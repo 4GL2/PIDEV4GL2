@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Title</title>
+	<ui:include src="Link.xhtml" />
+</h:head>
+<h:body>
+	<!-- Left Panel -->
+	<div id="wrapper">
+		<ui:include src="leftbar.xhtml"></ui:include>
+		<div id="page-wrapper" class="gray-bg">
+			<div class="row border-bottom">
+				<ui:include src="topbar.xhtml"></ui:include>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-sm-4">
+					<h2>Training Session Management</h2>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index.html">Training
+								Session Management</a></li>
+						<li class="breadcrumb-item active"><strong>Training
+								Sessions</strong></li>
+					</ol>
+				</div>
+				<div class="col-sm-8">
+					<div class="title-action">
+						<a href="" class="btn btn-primary">Action</a>
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="ibox ">
+						<div class="ibox-title">
+							<h5>
+								Add new training session <small></small>
+							</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+			  <p:dataGrid value="#{trainingBean.trainings}" var="training">
+			   <div class="col-lg-4">
+                <div class="contact-box">
+                    <a class="row" href="profile.html">
+                    <div class="col-4">
+                        <div class="text-center">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a2.jpg"/>
+                            <div class="m-t-xs font-bold">#{training.name}"</div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <h3><strong>John Smith</strong></h3>
+                        <p><i class="fa fa-map-marker"></i>#{training.category}</p>
+                        <address>
+                            <strong>#{training.instructor.name}</strong><br/>
+                            #{training.startDate}<br/>
+                            #{training.endDate}<br/>
+                            <abbr title="Phone">P:</abbr> (123) 456-7890
+                        </address>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            </p:dataGrid>
+
+			<ui:include src="footer.xhtml"></ui:include>
+		</div>
+	</div>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<script src="js/inspinia.js"></script>
+	<script src="js/plugins/pace/pace.min.js"></script>
+</h:body>
+</html>
+

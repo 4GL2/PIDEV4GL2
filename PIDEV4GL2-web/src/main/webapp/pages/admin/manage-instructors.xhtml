@@ -1,0 +1,99 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+
+	<ui:param name="page_name" value="Accueil" />
+
+	<ui:define name="content">
+	
+		<!-- BEGIN : TP1 JSF Introduction Login -->
+
+		<!-- END : TP1 JSF Introduction Login -->
+
+		<!-- BEGIN : TP2 JSF CRUD Ajout Employé -->
+		<br />
+		<h:panelGroup columns="2">
+			<h:form>
+				<table>
+					<tr>
+						<td><h:outputText value="Name"></h:outputText></td>
+						<td><h:inputText value="#{instructorBean.name}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Email"></h:outputText></td>
+						<td><h:inputText value="#{instructorBean.email}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Mot de Passe"></h:outputText></td>
+						<td><h:inputSecret value="#{instructorBean.password}"></h:inputSecret></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Phone number"></h:outputText></td>
+						<td><h:inputText value="#{instructorBean.phone}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td colspan="2"><h:commandButton value="Add instructor"
+								action="#{instructorBean.addInstructor()}" /> <h:commandButton
+								value="Update instructor"
+								action="#{instructorBean.mettreAjourInstructor(instructor)}" />
+						</td>
+					</tr>
+				</table>
+			</h:form>
+		</h:panelGroup>
+		<!-- BEGIN : TP2 JSF CRUD Ajout Employé -->
+
+		<!-- BEGIN : TP3 JSF List Employes -->
+		<br />
+		<h:panelGroup columns="2">
+			<h:form>
+				<h:dataTable value="#{instructorBean.instructors}" var="instructor"
+					border="1">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{instructor.name}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Email" />
+						</f:facet>
+						<h:outputText value="#{instructor.email}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Password" />
+						</f:facet>
+						<h:outputText value="#{instructor.password}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Phone number" />
+						</f:facet>
+						<h:outputText value="#{instructor.phone}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Action" />
+						</f:facet>
+						<h:commandButton
+							action="#{instructorBean.supprimer(instructor.id)}"
+							value="Supprimer" />
+
+						<h:commandButton action="#{instructorBean.modifier(instructor)}"
+							value="Modifier" />
+					</h:column>
+<!-- 					END :  TP4 JSF Supprimer Employé -->
+<!-- 					END :  TP4 JSF Modifer Employé -->
+
+				</h:dataTable>
+			</h:form>
+		</h:panelGroup>
+		<!-- END :  TP3 JSF List Employes -->
+	</ui:define>
+
+</ui:composition>
